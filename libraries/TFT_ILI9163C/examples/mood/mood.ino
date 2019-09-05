@@ -31,6 +31,7 @@ You are using 4 wire SPI here, so:
 // PB.5 - Pin  2 -- CS  (2)
 // PB.6 - Pin 14 -- MISO(2)
 // PB.7 - Pin 15 -- MOSI(2)
+// RST ------------ RST
 #else	 // Arduino 
 #define __CS 10
 #define __DC 9

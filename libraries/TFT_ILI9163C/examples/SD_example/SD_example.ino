@@ -30,6 +30,7 @@ An SD bmp image load example. (extracted and modded by Adafruit old library http
 // PB.5 - Pin  2 -- CS  (2)
 // PB.6 - Pin 14 -- MISO(2)
 // PB.7 - Pin 15 -- MOSI(2)
+// RST ------------ RST
 #else
 //PINS (Arduino)
 #define __CS 10

@@ -49,6 +49,7 @@ You are using 4 wire SPI here, so:
 // PB.5 - Pin  2 -- CS  (2)
 // PB.6 - Pin 14 -- MISO(2)
 // PB.7 - Pin 15 -- MOSI(2)
+// RST ------------ RST
 TFT_ILI9163C tft = TFT_ILI9163C(__CS, __DC);
 
 #else	 // Arduino 
