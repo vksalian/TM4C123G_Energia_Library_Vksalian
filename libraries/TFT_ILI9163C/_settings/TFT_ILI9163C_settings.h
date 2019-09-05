@@ -4,11 +4,11 @@
 
 //DID YOU HAVE A RED PCB, BLACk PCB or WHAT DISPLAY TYPE???????????? 
 //  ---> SELECT HERE <----
-#define __144_RED_PCB__//128x128
+#define __18_RED_PCB__//160x128
+//#define __144_RED_PCB__//128x128
 //#define __144_BLACK_PCB__//128x128
 //#define __22_RED_PCB__//240x320
 //---------------------------------------
-
 
 #if defined(__144_RED_PCB__)
 /*
@@ -54,6 +54,16 @@ Not tested!
 	#define __COLORSPC		1// 1:GBR - 0:RGB
 	#define __GAMMASET1		//uncomment for another gamma
 	#define __OFFSET		0
+
+#elif defined (__18_RED_PCB__) //160x128
+    #define _TFTWIDTH       128//128
+    #define _TFTHEIGHT      160//160
+    #define _GRAMWIDTH      128
+    #define _GRAMHEIGH      160
+    #define _GRAMSIZE       _GRAMWIDTH * _GRAMHEIGH
+    #define __COLORSPC      1// 1:GBR - 0:RGB
+    #define __GAMMASET1
+    #define __OFFSET        0
 #else
 	#define _TFTWIDTH  		128//128
 	#define _TFTHEIGHT 		160//160
