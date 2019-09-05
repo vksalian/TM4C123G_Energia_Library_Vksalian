@@ -843,6 +843,11 @@ void TFT_ILI9163C::pushColor(uint16_t color) {
 void TFT_ILI9163C::writeScreen24(const uint32_t *bitmap,uint16_t size) {
 	uint16_t color;
 	uint16_t px;
+
+    #if defined(__TM4C123GH6PM__) // VKSALIAN
+	uint8_t  r, g, b; // VKSALIAN added
+    #endif
+
 	#if defined(__MK20DX128__) || defined(__MK20DX256__)
 		writecommand_cont(CMD_RAMWR);
 		for (px = 0;px < size; px++){//16384
@@ -851,6 +856,16 @@ void TFT_ILI9163C::writeScreen24(const uint32_t *bitmap,uint16_t size) {
 		}
 		_setAddrWindow(0x00,0x00,_GRAMWIDTH,_GRAMHEIGH);//home
 		SPI.endTransaction();
+    #elif defined(__TM4C123GH6PM__) // VKSALIAN
+        writecommand(CMD_RAMWR);
+        for (px = 0;px < size; px++){
+            // Convert pixel from BMP to TFT format, push to display
+            b = bitmap[px]>>16;
+            g = bitmap[px]>>8;
+            r = bitmap[px];
+            pushData(Color565(r,g,b));
+        }
+        homeAddress();
 	#else
 		writecommand(CMD_RAMWR);
 		for (px = 0;px < size; px++){
